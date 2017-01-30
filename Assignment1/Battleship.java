@@ -18,6 +18,9 @@ public class Battleship
 	final static int GAMEBOARD_COLUMNS = 8;
 	final static String ALPHA_TRANSLATE = "ABCDEFGH";
 
+	public static Boolean didHumanHitGrenade = false;
+	public static Boolean didComputerHitGrenade = false;
+
 	/** Initialize the random number generator, as used by randomCell() method.
 	*   It's initialized here instead of in the randomCell() method to avoid
 	*   draining entropy excessively with multiple calls.
@@ -62,17 +65,25 @@ public class Battleship
 	/** 
 	* Takes a set of coordinates and acting player's name and fires at that position.
 	*/
-	private static void fireRocket(int row, int column, String player)
+	private static String fireRocket(int row, int column, String player)
 	{
 		String message = "";
-		
+		String hitType = "";
+
 		if(gameBoard[row][column].isOccupied() == true)
-			message = String.format("\nHIT by %s!\n",player);
+		{
+			hitType = gameBoard[row][column].getType();
+			message = String.format("\n%s HIT by %s!\n",hitType, player);
+		}
 		else
 			message = String.format("\nMISS by %s!\n", player);
 		
+		if(gameBoard[row][column].isPositionCalled() == true)
+			message = String.format("\nPosition already called.  Nothing happened.\n");
+
 		System.out.println(message);
 		gameBoard[row][column].setPositionCalled();
+		return hitType;
 	}
 
 	/**
@@ -273,11 +284,21 @@ public class Battleship
 	*/
 	public static void computerTurn()
 	{
+		if(didComputerHitGrenade == true)
+		{
+			didComputerHitGrenade = false;
+			System.out.println("Computer misses a turn.");
+			return;
+		}
+
 		int[] coordinates = randomCell();
 		int row = coordinates[0];
 		int column = coordinates[1];
 		System.out.printf("Computer targets cell %s", rowAndColumnToLetterNumber(coordinates));
-		fireRocket(row,column, "Computer");
+		String hitWhat = fireRocket(row,column, "Computer");
+		if(hitWhat == "Grenade")
+			didComputerHitGrenade = true;
+
 	}
 	
 	/** 
@@ -285,6 +306,13 @@ public class Battleship
 	*/
 	public static void getUserTarget()
 	{
+		if(didHumanHitGrenade == true)
+		{
+			didHumanHitGrenade = false;
+			System.out.println("Human misses a turn.");
+			return;
+		}
+
 		Boolean userChoiceIsValid = false;
 		String userTarget = "";
 		int[] coordinates;
@@ -300,7 +328,11 @@ public class Battleship
 				coordinates = letterNumberToRowAndColumn(userTarget);
 				row = coordinates[0];
 				column = coordinates[1];
-				fireRocket(row,column, "Human");
+				String hitWhat = fireRocket(row,column, "Human");
+				if(hitWhat == "Grenade")
+				{
+					didHumanHitGrenade = true;
+				}
 			} else
 				{
 					System.out.println("Invalid choice, please make another selection.");
