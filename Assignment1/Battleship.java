@@ -1,6 +1,9 @@
 /** Defines a Battleship object.
- * @author Chris Hewlings
- * @version 0.1
+ *@version 0.1
+ * Names(s) and ID(s)	Chris Hewlings: 29145958  /  Leo Sudarma 40046196
+ * COMP249
+ * Assignment # 		Assignment #1
+ * Due Date				February 1, 2017
  */
 
 import java.util.Scanner;
