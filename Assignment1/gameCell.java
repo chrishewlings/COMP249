@@ -1,9 +1,17 @@
+/** Defines a gameCell object to be used in the 2D array gameBoard defined in class Battleship
+ * @author Chris Hewlings
+ * @version 0.1
+ */
+
+
 public class gameCell
 {
 	private String type;
 	private String owner;
 	private Boolean positionCalled;
 	private Boolean occupied;
+
+	// CONSTRUCTORS
 
 	public gameCell()
 	{
@@ -21,7 +29,7 @@ public class gameCell
 		this.occupied = false;
 	}
 
-	// getters
+	// GETTERS
 
 	public String getType()
 	{
@@ -57,7 +65,7 @@ public class gameCell
 		else return false;
 	}
 
-	// setters
+	// SETTERS
 
 	public void setType(String type)
 	{
@@ -69,7 +77,7 @@ public class gameCell
 		this.owner = owner;
 	}
 
-	public void setPositionUsed()
+	public void setPositionCalled()
 	{
 		this.positionCalled = true;
 	}
@@ -92,23 +100,23 @@ public class gameCell
 			}
 	}
 
-	// overridden 
+	// OVERRIDDEN METHODS 
 
 	public String toString()
 	{
 		String returnString = "";
 
-		if( (isPositionCalled() == true) && (isOccupied() == true) )
+		if( (this.isPositionCalled() == true) && (this.isOccupied() == true) )
 		{
-			if( (hasShip() == true) && getOwner() == "Human" )
+			if( (this.hasShip() == true) && this.getOwner() == "Human" )
 				returnString = "s";
-			if( (hasShip() == true) && getOwner() == "Computer" )
+			if( (this.hasShip() == true) && this.getOwner() == "Computer" )
 				returnString = "S";
-			if( (hasGrenade() == true) && getOwner() == "Human" )
+			if( (this.hasGrenade() == true) && this.getOwner() == "Human" )
 				returnString = "g";
-			if( (hasGrenade() == true && getOwner() == "Computer") )
+			if( (this.hasGrenade() == true && this.getOwner() == "Computer") )
 				returnString = "G";
-		} else if( (isPositionCalled() == true)  && (isOccupied() == false) )
+		} else if( (this.isPositionCalled() == true)  && (this.isOccupied() == false) )
 				{
 					returnString = "*";
 				}
