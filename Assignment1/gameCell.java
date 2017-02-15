@@ -1,6 +1,6 @@
 /** Defines a gameCell object to be used in the 2D array gameBoard defined in class Battleship
  *@version 0.1
- * Names(s) and ID(s)	Chris Hewlings: 29145958  /  Leo Sudarma 40046196
+ * Names(s) and ID(s)	Chris Hewlings: 29145958  /  Leo Sudarma : 40046196
  * COMP249
  * Assignment # 		Assignment #1
  * Due Date				February 1, 2017

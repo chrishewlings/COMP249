@@ -1,6 +1,6 @@
 /** Defines a Battleship object.
  *@version 0.1
- * Names(s) and ID(s)	Chris Hewlings: 29145958  /  Leo Sudarma 40046196
+ * Names(s) and ID(s)	Chris Hewlings: 29145958  /  Leo Sudarma : 40046196
  * COMP249
  * Assignment # 		Assignment #1
  * Due Date				February 1, 2017
@@ -342,10 +342,14 @@ public class Battleship
 	}
 
 	/**
-	* Dumps the contents of the game board to the console. Mainly for debugging. 
+	* Dumps the contents of the game board to the console. Mainly for debugging,
+	* but used once at the end to show the owner and position of all ships/grenades
+	* in a clearer form than the showGameBoard() method. 
 	*/
 	public static void dumpRows()
 	{
+		System.out.println("\nGrenade and Ship Placement:\n");
+
 		// Prints the row letters.
 
 		System.out.printf("   ");
