@@ -65,11 +65,17 @@ public class AirCraft extends PublicTransportation {
   classTypes classType;
   maintenanceTypes maintenanceType;
 
+  /**
+   * Default empty AirCraft constructor
+   */
   public AirCraft()
   {
     super();
   }
 
+  /**
+   * Default parametrized AirCraft constructor
+   */
   public AirCraft(double ticketPrice, int numStops, String maintenanceType, String classType)
   {
     this.setTicketPrice(ticketPrice);
@@ -77,6 +83,22 @@ public class AirCraft extends PublicTransportation {
     this.setMaintenanceType(maintenanceType);
     this.setClassType(classType);
   }
+
+  /**
+   *  AirCraft copy constructor
+   */
+   public AirCraft(AirCraft aircraft)
+   {
+     this(aircraft.getTicketPrice(), aircraft.getNumStops(), aircraft.getMaintenanceType(), aircraft.getClassType() );
+   }
+
+  /**
+   * Clone method added to accomodate class polymorphism
+   */
+   public AirCraft clone()
+   {
+    return new AirCraft(this);
+   }
 
   /**
 	* Returns value of maintenanceType

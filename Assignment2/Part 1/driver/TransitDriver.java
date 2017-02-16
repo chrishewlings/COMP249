@@ -88,5 +88,6 @@ class TransitDriver {
 
     System.out.printf("The highest cost is $%.2f, from index %d, corresponding to object \"%s\".\n\n", highestCost, highestIndex, testArray[highestIndex]);
     System.out.printf("The lowest cost is $%.2f, from index %d, corresponding to object \"%s\"\n\n", lowestCost, lowestIndex, testArray[lowestIndex]);
+    System.out.println("All done!");
   }
 }

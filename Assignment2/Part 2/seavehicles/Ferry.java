@@ -38,6 +38,15 @@ public class Ferry extends PublicTransportation {
 	  this(ferry.getTicketPrice(), ferry.getNumStops(), ferry.getBuildYear(), ferry.getShipName());
 	}
 
+  /**
+  * Clone method added to accomodate class polymorphism
+  */
+  public Ferry clone()
+  {
+    return new Ferry(this);
+  }
+
+
 	/**
 	* Returns value of buildYear
 	*/

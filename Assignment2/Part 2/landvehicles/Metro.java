@@ -38,6 +38,15 @@ public class Metro extends CityBus {
     this(metro.getTicketPrice(), metro.getNumStops(), metro.getRouteNum(), metro.getBeginOperationYear(), metro.getLineName(), metro.getDriverName(), metro.getNumVehicles(), metro.getNameOfCity());
   }
 
+   /**
+   * Clone method added to accomodate class polymorphism
+   */
+   public Metro clone()
+   {
+    return new Metro(this);
+   }
+
+
 
 	/**
 	* Returns value of numVehicles

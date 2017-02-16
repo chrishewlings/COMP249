@@ -45,6 +45,15 @@ public class CityBus extends PublicTransportation {
     this(cityBus.getTicketPrice(), cityBus.getNumStops(), cityBus.getRouteNum(), cityBus.getBeginOperationYear(), cityBus.getLineName(), cityBus.getDriverName() );
   }
 
+   /**
+   * Clone method added to accomodate class polymorphism
+   */
+   public CityBus clone()
+   {
+    return new CityBus(this);
+   }
+
+
   // Getters and Setters
 
 	/**

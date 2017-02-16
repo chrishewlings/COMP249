@@ -41,6 +41,15 @@ public class PublicTransportation {
     this.setNumStops( publicTransportation.getNumStops() );
   }
 
+  /**
+  * Clone method added to accomodate class polymorphism
+  */
+  public PublicTransportation clone()
+  {
+    return new PublicTransportation(this);
+  }
+
+
   // Getters and Setters
 
 	/**

@@ -12,7 +12,30 @@ import landvehicles.*;
 import seavehicles.*;
 import airvehicles.*;
 
+/* TransitDriver class modified to accomodate package privacy changes.
+ * Causes some trouble especially with the enums declared in the AirCraft class
+ * but allows for more flexibility if the implementation of the classes
+ * needs to be changed in the future, e.g. because we're using methods
+ * instead of inherited attributes we can freely change implementation
+ * and just change methods instead of being forced to change types and program logic.
+ */
+
+
+
 class TransitDriver {
+
+  static PublicTransportation[] copyCityBus(PublicTransportation[] inputArray)
+  {
+    int newArrayLength = inputArray.length;
+    PublicTransportation[] outputArray = new PublicTransportation[newArrayLength];
+
+    // Loops through the array and calls the .clone() method on each object.
+    for(int i = 0; i < newArrayLength; i++)
+    {
+      outputArray[i] = inputArray[i].clone();
+    }
+    return outputArray;
+  }
   public static void main(String[] args)
   {
 
@@ -29,64 +52,32 @@ class TransitDriver {
     AirCraft aircraft1 = new AirCraft(2.5, 4, "Weekly", "Balloon"); // Need to use Strings here because we can't access enums outside package
     PublicTransportation publictransportation1 = new PublicTransportation(2.0, 13);
 
-    // Displaying the properties of the created objects
-    System.out.printf("\nTesting .toString() method...\n");
-    System.out.printf("-------------------------------\n");
 
-    System.out.println("City Bus 1: " + citybus1);
-    System.out.println("City Bus 2: " + citybus2);
-    System.out.println("Metro 1 : " + metro1);
-    System.out.println("Metro 2 : " + metro2);
-    System.out.println("Tram 1 : " + tram1);
-    System.out.println("Tram 2 : " + tram2);
-    System.out.println("Ferry 1 : " + ferry1);
-    System.out.println("Ferry 2 : " + ferry2);
-    System.out.println("Aircraft 1 : " + aircraft1);
-    System.out.println("Public Transportation 1 : " + publictransportation1);
-
-    // Comparing equality of objects
-    System.out.printf("\nTesting .equals() method...\n");
-    System.out.printf("-----------------------------\n");
-
-    if(citybus1.equals(citybus2))
-    {
-      System.out.println("City Bus 1 = City Bus 2.");
-    }
-
-    if(! metro1.equals(metro2))
-    {
-      System.out.println("Metro 1 != Metro 2.");
-    }
 
     // Creating an array of objects
+    System.out.printf("\nCreating an array of PublicTransportation Objects...\n");
+    System.out.printf("------------------------------------------------------\n");
+    PublicTransportation[] firstArray = { citybus1,citybus2,metro1,metro2,tram1,tram2,ferry1,ferry2,aircraft1,publictransportation1};
 
-    PublicTransportation[] testArray = { citybus1,citybus2,metro1,metro2,tram1,tram2,ferry1,ferry2,aircraft1,publictransportation1};
-
-    // Looping through the array to find the lowest and the highest cost.
-    System.out.printf("\nFinding the lowest and highest cost in array...\n");
-    System.out.printf("-------------------------------------------------\n");
-
-    int lowestIndex = 0;
-    int highestIndex = 0;
-    double lowestCost = Integer.MAX_VALUE;
-    double highestCost = 0;
-
-    for(int i = 0; i < testArray.length; i++)
+    // Print original array
+    System.out.printf("\nPrinting first array to screen...\n");
+    System.out.printf("---------------------------------\n");
+    for(int i = 0 ; i < firstArray.length; i++)
     {
-      if(testArray[i].getTicketPrice() < lowestCost)
-      {
-        lowestCost = testArray[i].getTicketPrice();
-        lowestIndex = i;
-      }
-
-      if(testArray[i].getTicketPrice() > highestCost)
-      {
-        highestCost = testArray[i].getTicketPrice();
-        highestIndex = i;
-      }
+      System.out.println(firstArray[i]);
     }
 
-    System.out.printf("The highest cost is $%.2f, from index %d, corresponding to object \"%s\".\n\n", highestCost, highestIndex, testArray[highestIndex]);
-    System.out.printf("The lowest cost is $%.2f, from index %d, corresponding to object \"%s\"\n\n", lowestCost, lowestIndex, testArray[lowestIndex]);
+    // Call copyCityBus() on first array to create a clone of it
+    System.out.printf("\nMaking a copy of our original array...\n");
+    System.out.printf("----------------------------------------\n");
+    PublicTransportation[] copiedArray = copyCityBus(firstArray);
+
+    // Print copied array to screen.
+    for( int i = 0; i < copiedArray.length; i++ )
+    {
+      System.out.println(copiedArray[i]);
+    }
+
+    System.out.println("All done!");
   }
 }

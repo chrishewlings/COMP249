@@ -34,6 +34,15 @@ public class Tram extends CityBus {
     	this(tram.getTicketPrice(), tram.getNumStops(), tram.getRouteNum(), tram.getBeginOperationYear(), tram.getLineName(), tram.getDriverName(), tram.getMaxSpeed());
   	}
 
+    /**
+    * Clone method added to accomodate class polymorphism
+    */
+    public Tram clone()
+    {
+      return new Tram(this);
+    }
+
+
 	/**
 	* Returns value of maxSpeed
 	*/
