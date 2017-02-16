@@ -1,7 +1,7 @@
 /** Defines a CityBus subclass extending PublicTransportation,
  * and parent to Tram and Metro, containing methods and attributes common to subclasses
  * to itself and its two subclasses.
- * 
+ *
  *@version 0.1
  * Names(s) and ID(s) Chris Hewlings: 29145958  /  Leo Sudarma : 40046196
  * COMP249
@@ -49,7 +49,6 @@ public class CityBus extends PublicTransportation {
 
 	/**
 	* Returns value of routeNum
-	* @return long
 	*/
 	public long getRouteNum() {
 		return routeNum;
@@ -57,7 +56,6 @@ public class CityBus extends PublicTransportation {
 
 	/**
 	* Sets new value of routeNum
-	* @param long
 	*/
 	public void setRouteNum(long routeNum) {
 		this.routeNum = routeNum;
@@ -65,7 +63,6 @@ public class CityBus extends PublicTransportation {
 
 	/**
 	* Returns value of beginOperationYear
-	* @return int
 	*/
 	public int getBeginOperationYear() {
 		return beginOperationYear;
@@ -73,7 +70,6 @@ public class CityBus extends PublicTransportation {
 
 	/**
 	* Sets new value of beginOperationYear
-	* @param int
 	*/
 	public void setBeginOperationYear(int beginOperationYear) {
 		this.beginOperationYear = beginOperationYear;
@@ -81,7 +77,6 @@ public class CityBus extends PublicTransportation {
 
 	/**
 	* Returns value of lineName
-	* @return String
 	*/
 	public String getLineName() {
 		return lineName;
@@ -89,7 +84,6 @@ public class CityBus extends PublicTransportation {
 
 	/**
 	* Sets new value of lineName
-	* @param String
 	*/
 	public void setLineName(String lineName) {
 		this.lineName = lineName;
@@ -97,7 +91,6 @@ public class CityBus extends PublicTransportation {
 
 	/**
 	* Returns value of driverName
-	* @return String
 	*/
 	public String getDriverName() {
 		return driverName;
@@ -105,7 +98,6 @@ public class CityBus extends PublicTransportation {
 
 	/**
 	* Sets new value of driverName
-	* @param
 	*/
 	public void setDriverName(String driverName) {
 		this.driverName = driverName;
@@ -113,7 +105,7 @@ public class CityBus extends PublicTransportation {
 
   /**
   * Override equals() method from Object class
-  * @return Boolean
+  * @return Returns true if obj1 == obj2, otherwise false.
   */
   public boolean equals(Object obj)
   {
@@ -127,6 +119,7 @@ public class CityBus extends PublicTransportation {
       }
 
       CityBus toCompare = (CityBus) obj;
+      // Getter and setter methods are required here, because we no longer implicitly inherit parent variables (due to private modifier)
       if( (toCompare.getTicketPrice() == this.getTicketPrice()) && (toCompare.getNumStops() == this.getNumStops()) && (toCompare.getRouteNum() == this.getRouteNum()) && (toCompare.getBeginOperationYear() == this.getBeginOperationYear()) && (toCompare.getLineName() == this.getLineName()) && (toCompare.getDriverName() == this.getDriverName()))
       {
         return true;
@@ -136,10 +129,11 @@ public class CityBus extends PublicTransportation {
 
 	/**
 	* Create string representation of CityBus for printing
-	* @return String
+	* @return Stringified representation of CityBus object.
 	*/
 
 	public String toString() {
+      // Getter and setter methods are required here, because we no longer implicitly inherit parent variables (due to private modifier)
     	String returnString = String.format("This city bus has %d stops, and costs $%.2f.  Its route type is %d, currently being driven by %s on line %s, and it has been in operation since %d.", getNumStops(), getTicketPrice(), getRouteNum(), getDriverName(), getLineName(), getBeginOperationYear());
     	return returnString;
 	}

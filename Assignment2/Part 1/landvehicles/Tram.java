@@ -1,5 +1,5 @@
 /** Defines a Tram subclass extending CityBus.
- * 
+ *
  *@version 0.1
  * Names(s) and ID(s) Chris Hewlings: 29145958  /  Leo Sudarma : 40046196
  * COMP249
@@ -37,7 +37,6 @@ public class Tram extends CityBus {
 
 	/**
 	* Returns value of maxSpeed
-	* @return
 	*/
 	public int getMaxSpeed() {
 		return maxSpeed;
@@ -45,7 +44,6 @@ public class Tram extends CityBus {
 
 	/**
 	* Sets new value of maxSpeed
-	* @param
 	*/
 	public void setMaxSpeed(int maxSpeed) {
 		this.maxSpeed = maxSpeed;
@@ -53,7 +51,7 @@ public class Tram extends CityBus {
 
   /**
   * Override equals() method from Object class
-  * @return Boolean
+  * @return Returns true if obj1 == obj2, otherwise false.
   */
   public boolean equals(Object obj)
   {
@@ -67,6 +65,7 @@ public class Tram extends CityBus {
       }
 
       Tram toCompare = (Tram) obj;
+      // No need for getter and setter methods here, because we inherit protected variables from parent class(es).
       if( (toCompare.ticketPrice == this.ticketPrice) && (toCompare.numStops == this.numStops) && (toCompare.routeNum == this.routeNum) && (toCompare.beginOperationYear == this.beginOperationYear) && (toCompare.lineName == this.lineName) && (toCompare.driverName == this.driverName) && (toCompare.maxSpeed == this.maxSpeed))
       {
         return true;
@@ -76,10 +75,11 @@ public class Tram extends CityBus {
 
 	/**
 	* Create string representation of Tram for printing
-	* @return
+	* @return Stringified representation of Tram object.
 	*/
 	public String toString() {
-    	String returnString = String.format("This tram has %d stops, and costs $%.2f. Its maximum speed is %dkm/h.  Its route type is %d, currently being driven by %s on line %s, and it has been in operation since %d.", numStops, ticketPrice, maxSpeed, routeNum, driverName, lineName, beginOperationYear);
+      // No need for getter and setter methods here, because we inherit protected variables from parent class(es).
+    	String returnString = String.format("This tram has %d stops, and costs $%.2f. Its maximum speed is %dkm/h.  Its route number is %d, currently being driven by %s on line %s, and it has been in operation since %d.", numStops, ticketPrice, maxSpeed, routeNum, driverName, lineName, beginOperationYear);
     	return returnString;
 	}
 }

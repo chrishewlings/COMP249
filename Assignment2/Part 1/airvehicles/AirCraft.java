@@ -1,6 +1,6 @@
-/** Defines a AirCraft subclass extending PublicTransportation 
+/** Defines a AirCraft subclass extending PublicTransportation
  * containing 2 enumerated types (classTypes and maintenanceTypes)
- * 
+ *
  *@version 0.1
  * Names(s) and ID(s) Chris Hewlings: 29145958  /  Leo Sudarma : 40046196
  * COMP249
@@ -65,7 +65,7 @@ public class AirCraft extends PublicTransportation {
 
   /**
 	* Override equals() method from Object class
-  * @return Boolean
+  * @return Returns true if obj1 == obj2, otherwise false.
   */
   public boolean equals(Object obj)
   {
@@ -79,6 +79,7 @@ public class AirCraft extends PublicTransportation {
       }
 
       AirCraft toCompare = (AirCraft) obj;
+      // No need for getter and setter methods here, because we inherit protected variables from parent class(es).
       if( (toCompare.ticketPrice == this.ticketPrice) && (toCompare.numStops == this.numStops) && (toCompare.maintenanceType == this.maintenanceType) && (toCompare.classType == this.classType) )
       {
         return true;
@@ -88,11 +89,12 @@ public class AirCraft extends PublicTransportation {
 
 	/**
 	* Create string representation of AirCraft for printing
-	* @return String
+	* @return Stringified representation of AirCraft object.
 	*/
 
 	public String toString()
 	{
+      // No need for getter and setter methods here, because we inherit protected variables from parent class(es).
     	String returnString = String.format("This aircraft has %d stops, and costs $%.2f.  Its maintenance type is %s and its class type is %s.", numStops, ticketPrice, maintenanceType, classType);
     	return returnString;
 	}

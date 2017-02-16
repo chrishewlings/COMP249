@@ -1,6 +1,6 @@
-/** Defines a AirCraft subclass extending PublicTransportation 
+/** Defines a AirCraft subclass extending PublicTransportation
  * containing 2 enumerated types (classTypes and maintenanceTypes)
- * 
+ *
  *@version 0.1
  * Names(s) and ID(s) Chris Hewlings: 29145958  /  Leo Sudarma : 40046196
  * COMP249
@@ -16,13 +16,13 @@ public class AirCraft extends PublicTransportation {
   /* because our enums are now package-private instead of public
    * we can't import them into TransitDriver and thus
    * can't directly use them in our parametrized constructor.
-   * 
+   *
    * The modification below is so we can pass String variables to our constructor
    * instead of instances of classTypes/maintenanceTypes. See also setMaintenanceTypes/setClassTypes
    */
 
-  enum classTypes 
-  { 
+  enum classTypes
+  {
     Helicopter("Helicopter"),
     Airline("Airline"),
     Glider("Glider"),
@@ -42,11 +42,11 @@ public class AirCraft extends PublicTransportation {
 
   };
 
-  enum maintenanceTypes 
-  { 
+  enum maintenanceTypes
+  {
     Weekly("Weekly"),
     Monthly("Monthly"),
-    Yearly("Yearly"); 
+    Yearly("Yearly");
 
     private String value;
 
@@ -80,7 +80,6 @@ public class AirCraft extends PublicTransportation {
 
   /**
 	* Returns value of maintenanceType
-  * @return String
 	*/
   public String getMaintenanceType()
   {
@@ -112,7 +111,6 @@ public class AirCraft extends PublicTransportation {
 
   /**
 	* Returns value of classType
-  * @return String
 	*/
   public String getClassType()
   {
@@ -148,7 +146,7 @@ public class AirCraft extends PublicTransportation {
 
   /**
 	* Override equals() method from Object class
-  * @return Boolean
+  * @return Returns true if obj1 == obj2, otherwise false.
   */
   public boolean equals(Object obj)
   {
@@ -162,6 +160,7 @@ public class AirCraft extends PublicTransportation {
       }
 
       AirCraft toCompare = (AirCraft) obj;
+      // Getter and setter methods are required here, because we no longer implicitly inherit parent variables (due to private modifier)
       if( (toCompare.getTicketPrice() == this.getTicketPrice()) && (toCompare.getNumStops() == this.getNumStops()) && (toCompare.getMaintenanceType() == this.getMaintenanceType()) && (toCompare.getClassType() == this.getClassType()) )
       {
         return true;
@@ -171,11 +170,12 @@ public class AirCraft extends PublicTransportation {
 
 	/**
 	* Create string representation of AirCraft for printing
-	* @return String
+	* @return Stringified representation of AirCraft object.
 	*/
 
 	public String toString()
 	{
+      // Getter and setter methods are required here, because we no longer implicitly inherit parent variables (due to private modifier)
     	String returnString = String.format("This aircraft has %d stops, and costs $%.2f.  Its maintenance type is %s and its class type is %s.", getNumStops(), getTicketPrice(), getMaintenanceType(), getClassType());
     	return returnString;
 	}

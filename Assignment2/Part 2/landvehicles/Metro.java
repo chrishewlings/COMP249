@@ -1,5 +1,5 @@
 /** Defines a Metro subclass extending CityBus.
- * 
+ *
  *@version 0.1
  * Names(s) and ID(s) Chris Hewlings: 29145958  /  Leo Sudarma : 40046196
  * COMP249
@@ -41,7 +41,6 @@ public class Metro extends CityBus {
 
 	/**
 	* Returns value of numVehicles
-	* @return
 	*/
 	public int getNumVehicles() {
 		return numVehicles;
@@ -49,7 +48,6 @@ public class Metro extends CityBus {
 
 	/**
 	* Sets new value of numVehicles
-	* @param
 	*/
 	public void setNumVehicles(int numVehicles) {
 		this.numVehicles = numVehicles;
@@ -57,7 +55,6 @@ public class Metro extends CityBus {
 
 	/**
 	* Returns value of nameOfCity
-	* @return
 	*/
 	public String getNameOfCity() {
 		return nameOfCity;
@@ -65,7 +62,6 @@ public class Metro extends CityBus {
 
 	/**
 	* Sets new value of nameOfCity
-	* @param
 	*/
 	public void setNameOfCity(String nameOfCity) {
 		this.nameOfCity = nameOfCity;
@@ -73,7 +69,7 @@ public class Metro extends CityBus {
 
   /**
     * Override equals() method from Object class
-    * @return Boolean
+    * @return Returns true if obj1 == obj2, otherwise false.
     */
     public boolean equals(Object obj)
     {
@@ -86,6 +82,7 @@ public class Metro extends CityBus {
         }
 
         Metro toCompare = (Metro) obj;
+        // Getter and setter methods are required here, because we no longer implicitly inherit parent variables (due to private modifier)
         if( (toCompare.getTicketPrice() == this.getTicketPrice()) && (toCompare.getNumStops() == this.getNumStops()) && (toCompare.getRouteNum() == this.getRouteNum()) && (toCompare.getBeginOperationYear() == this.getBeginOperationYear()) && (toCompare.getLineName() == this.getLineName()) && (toCompare.getDriverName() == this.getDriverName()) && (toCompare.getNumVehicles() == this.getNumVehicles()) && (toCompare.getNameOfCity() == this.getNameOfCity()) )
         {
           return true;
@@ -95,9 +92,10 @@ public class Metro extends CityBus {
 
 	/**
 	* Create string representation of Metro for printing
-	* @return
+	* @return Stringified representation of Metro object.
 	*/
 	public String toString() {
+    // Getter and setter methods are required here, because we no longer implicitly inherit parent variables (due to private modifier)
     String returnString = String.format("This %s city metro has %d stops, and costs $%.2f. It has %d cars.  Its route type is %d, currently being driven by %s on line %s, and it has been in operation since %d.", getNameOfCity(), getNumStops(), getTicketPrice(), getNumVehicles(), getRouteNum(), getDriverName(), getLineName(), getBeginOperationYear());
     return returnString;
 	}

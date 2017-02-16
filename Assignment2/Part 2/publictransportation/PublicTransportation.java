@@ -1,4 +1,4 @@
-/** Defines a PublicTransportation base class which is shared 
+/** Defines a PublicTransportation base class which is shared
  * by multiple packages (airvehicles, landvehicles, seavehicles),
  * as well as any pertinent shared attributes and methods.
  *@version 0.1
@@ -45,7 +45,6 @@ public class PublicTransportation {
 
 	/**
 	* Returns value of ticketPrice
-	* @return double
 	*/
 	public double getTicketPrice() {
 		return ticketPrice;
@@ -53,7 +52,6 @@ public class PublicTransportation {
 
 	/**
 	* Sets new value of ticketPrice
-	* @param double
 	*/
 	public void setTicketPrice(double ticketPrice) {
 		this.ticketPrice = ticketPrice;
@@ -61,7 +59,6 @@ public class PublicTransportation {
 
 	/**
 	* Returns value of numStops
-	* @return int
 	*/
 	public int getNumStops() {
 		return numStops;
@@ -69,7 +66,6 @@ public class PublicTransportation {
 
 	/**
 	* Sets new value of numStops
-	* @param int
 	*/
 	public void setNumStops(int numStops) {
 		this.numStops = numStops;
@@ -77,7 +73,7 @@ public class PublicTransportation {
 
   /**
   * Override equals() method from Object class
-  * @return Boolean
+  * @return Returns true if obj1 == obj2, otherwise false.
   */
   public boolean equals(Object obj)
   {
@@ -99,10 +95,12 @@ public class PublicTransportation {
 
   /**
 	* Create string representation of PublicTransportation for printing
-	* @return String
+	* @return Stringified representation of PublicTransportation object.
 	*/
 	public String toString() {
-		return "PublicTransportation [ticketPrice=" + getTicketPrice() + ", numStops=" + getNumStops() + "]";
+		//return "PublicTransportation [ticketPrice=" + getTicketPrice() + ", numStops=" + getNumStops() + "]";
+    String returnString = String.format("This is a PublicTransportation with %d stops that costs %.2f.", this.getNumStops(), this.getTicketPrice());
+    return returnString;
 	}
 
 

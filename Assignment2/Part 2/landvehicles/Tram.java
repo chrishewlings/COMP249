@@ -1,5 +1,5 @@
 /** Defines a Tram subclass extending CityBus.
- * 
+ *
  *@version 0.1
  * Names(s) and ID(s) Chris Hewlings: 29145958  /  Leo Sudarma : 40046196
  * COMP249
@@ -36,7 +36,6 @@ public class Tram extends CityBus {
 
 	/**
 	* Returns value of maxSpeed
-	* @return int
 	*/
 	public int getMaxSpeed() {
 		return maxSpeed;
@@ -44,7 +43,6 @@ public class Tram extends CityBus {
 
 	/**
 	* Sets new value of maxSpeed
-	* @param int
 	*/
 	public void setMaxSpeed(int maxSpeed) {
 		this.maxSpeed = maxSpeed;
@@ -52,7 +50,7 @@ public class Tram extends CityBus {
 
   	/**
   	* Override equals() method from Object class
-  	* @return Boolean
+  	* @return Returns true if obj1 == obj2, otherwise false.
   	*/
   	public boolean equals(Object obj)
   	{
@@ -66,6 +64,7 @@ public class Tram extends CityBus {
       		}
 
       Tram toCompare = (Tram) obj;
+      // Getter and setter methods are required here, because we no longer implicitly inherit parent variables (due to private modifier)
       if( (toCompare.getTicketPrice() == this.getTicketPrice()) && (toCompare.getNumStops() == this.getNumStops()) && (toCompare.getRouteNum() == this.getRouteNum()) && (toCompare.getBeginOperationYear() == this.getBeginOperationYear()) && (toCompare.getLineName() == this.getLineName()) && (toCompare.getDriverName() == this.getDriverName()) && (toCompare.getMaxSpeed() == this.getMaxSpeed() ))
       {
         return true;
@@ -75,9 +74,10 @@ public class Tram extends CityBus {
 
 	/**
 	* Create string representation of Tram for printing
-	* @return String
+	* @return Stringified representation of Tram object.
 	*/
 	public String toString() {
+      // Getter and setter methods are required here, because we no longer implicitly inherit parent variables (due to private modifier)
     	String returnString = String.format("This tram has %d stops, and costs $%.2f. Its maximum speed is %dkm/h.  Its route type is %d, currently being driven by %s on line %s, and it has been in operation since %d.", getNumStops(), getTicketPrice(), getMaxSpeed(), getRouteNum(), getDriverName(), getLineName(), getBeginOperationYear());
     	return returnString;
 	}

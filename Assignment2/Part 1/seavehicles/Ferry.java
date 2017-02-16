@@ -1,5 +1,5 @@
 /** Defines a Ferry subclass extending PublicTransportation,
- * 
+ *
  *@version 0.1
  * Names(s) and ID(s) Chris Hewlings: 29145958  /  Leo Sudarma : 40046196
  * COMP249
@@ -41,7 +41,6 @@ public class Ferry extends PublicTransportation {
 
 	/**
 	* Returns value of buildYear
-	* @return
 	*/
 	public int getBuildYear()
 	{
@@ -50,7 +49,6 @@ public class Ferry extends PublicTransportation {
 
 	/**
 	* Sets new value of buildYear
-	* @param
 	*/
 	public void setBuildYear(int buildYear)
 	{
@@ -59,7 +57,6 @@ public class Ferry extends PublicTransportation {
 
 	/**
 	* Returns value of shipName
-	* @return
 	*/
 	public String getShipName()
 	{
@@ -68,7 +65,6 @@ public class Ferry extends PublicTransportation {
 
 	/**
 	* Sets new value of shipName
-	* @param
 	*/
 	public void setShipName(String shipName)
 	{
@@ -77,7 +73,7 @@ public class Ferry extends PublicTransportation {
 
 	/**
   	* Override equals() method from Object class
-	  * @return Boolean
+	  * @return Returns true if obj1 == obj2, otherwise false.
 	  */
 	  public boolean equals(Object obj)
 	  {
@@ -100,7 +96,7 @@ public class Ferry extends PublicTransportation {
 
 		/**
 		* Create string representation of Ferry for printing
-		* @return String
+		* @return Stringified representation of Ferry object.
 		*/
 
 		public String toString()
