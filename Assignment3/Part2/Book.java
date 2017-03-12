@@ -96,6 +96,7 @@ public class Book {
 		return returnString;
 	}
 
+
 	@Override
 	public boolean equals(Object obj) {
 		if (obj == null)
