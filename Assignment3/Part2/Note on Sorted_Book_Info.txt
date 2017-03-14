@@ -1,0 +1,4 @@
+Note on Sorted_Book_Info.txt:
+-----------------------------
+
+The Word document for Assignment 3 indicates that Sorted_Book_Info.txt should be always assumed to be correct, but it contains an error on line 2, where a second (and out of order) book entry has been placed on the same line without a CR or LF.  We asked but didn't receive a response about whether this was wrong or not, so we corrected the file before running our program because it indicates that the file should always be treated as correct.

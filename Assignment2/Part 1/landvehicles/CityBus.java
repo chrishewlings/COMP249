@@ -98,7 +98,6 @@ public class CityBus extends PublicTransportation {
 
 	/**
 	* Sets new value of driverName
-	* @param
 	*/
 	public void setDriverName(String driverName) {
 		this.driverName = driverName;
